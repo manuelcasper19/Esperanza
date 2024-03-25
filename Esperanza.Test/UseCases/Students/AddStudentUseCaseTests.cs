@@ -45,6 +45,30 @@ namespace Esperanza.API.UseCases.Students.Tests
             var addStudent = new AddStudentUseCase(students);
             Assert.Throws<ArgumentException>(() => addStudent.Execute(student));
         }
+        [Fact()]
+        [DisplayName("student existy by email")]
+        public void AddStudentUseCaseTestExistByEmail()
+        {
+            var student = new Student { FullName = "STIVEN", Email = "test1@test.com", Password = "123456" };
+            var student1 = new Student { FullName = "STIVEN", Email = "test1@test.com", Password = "123456" };
+            var students = new List<Student>();
+            students.Add(student);
+            var addStudent = new AddStudentUseCase(students);
+            var result = addStudent.Execute(student1);
+            Assert.Null(result);
+        }
+        [Fact()]
+        [DisplayName("student existy by email")]
+        public void AddStudentUseCaseTestNotExistByEmail()
+        {
+            var student = new Student { FullName = "STIVEN", Email = "test1@test.com", Password = "123456" };
+            var student1 = new Student { FullName = "STIVEN", Email = "test2@test.com", Password = "123456" };
+            var students = new List<Student>();
+            students.Add(student);
+            var addStudent = new AddStudentUseCase(students);
+            var result = addStudent.Execute(student1);
+            Assert.NotNull(result);
+        }
 
         [Fact()]
         [DisplayName("student with null name")]

@@ -17,6 +17,7 @@ namespace Esperanza.API.UseCases.Students
         {
 
             Validate(student);
+            if (ValidateDataInput.ExistEntityByProperty(_students, s => s.Email, student.Email)) return null!;
             _students.Add(student);
             return student;
         }

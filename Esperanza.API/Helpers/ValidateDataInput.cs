@@ -18,6 +18,19 @@ namespace Esperanza.API.Helpers
             string nombrePattern = @"^[a-zA-Z]{3,}(?: [a-zA-Z]{3,})*$";
             return Regex.IsMatch(nombre, nombrePattern);
         }
+        public static bool ExistEntityByProperty<T>(List<T> entities, Func<T, string> propertySelector, string value)
+        {
+            foreach (T entity in entities)
+            {
+                string propertyValue = propertySelector(entity);
+                if (propertyValue.Equals(value, StringComparison.OrdinalIgnoreCase))
+                {
+                    //Console.WriteLine($"Ya existe el nombre {value}, por favor ingrese un nombre diferente");
+                    return true;
+                }
+            }
+            return false;
+        }
         public static void ValidateField<T>(T field, Func<T, bool> validationMethod)
         {
             if (!validationMethod(field))

@@ -16,6 +16,7 @@ namespace Esperanza.API.UseCases.Subjects
         public Subject Execute(Subject subject)
         {
             Validate(subject);
+            if (ValidateDataInput.ExistEntityByProperty(_subjects, s => s.Name, subject.Name)) return null!;
             _subjects.Add(subject);
             return subject;
         }
