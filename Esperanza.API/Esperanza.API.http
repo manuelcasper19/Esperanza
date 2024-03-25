@@ -1,0 +1,6 @@
+@Esperanza.API_HostAddress = http://localhost:5043
+
+GET {{Esperanza.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
