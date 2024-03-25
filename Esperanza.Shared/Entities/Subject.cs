@@ -1,5 +1,4 @@
-﻿
-namespace Universidad.Shared.Entities
+﻿namespace Esperanza.Shared.Entities
 {
     public class Subject
     {

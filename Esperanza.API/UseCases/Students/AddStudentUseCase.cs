@@ -1,9 +1,9 @@
 ﻿using Esperanza.API.Helpers;
-using Universidad.Console.Helpers;
-using Universidad.Console.UseCase.Interfaces;
-using Universidad.Shared.Entities;
+using Esperanza.API.UseCases.Interfaces;
+using Esperanza.Shared.Entities;
 
-namespace Universidad.Console.UseCases.Students
+
+namespace Esperanza.API.UseCases.Students
 {
     public class AddStudentUseCase : IUseCaseWithParameter<Student>
     {
@@ -17,15 +17,6 @@ namespace Universidad.Console.UseCases.Students
         {
 
             Validate(student);
-            //if (string.IsNullOrWhiteSpace(student.FullName))
-            //{
-            //    throw new ArgumentException("El nombre es obligatorio.");
-            //}
-
-            //if (string.IsNullOrWhiteSpace(student.Email))
-            //{
-            //    throw new ArgumentException("El correo electrónico es obligatorio.");
-            //}
             _students.Add(student);
             return student;
         }
@@ -34,8 +25,6 @@ namespace Universidad.Console.UseCases.Students
             ValidateDataInput.ValidateField(student.FullName, ValidateDataInput.IsFullnameValid);
             ValidateDataInput.ValidateField(student.Email, ValidateDataInput.IsValidEmail);
             ValidateDataInput.ValidateField(student.Password, ValidateDataInput.IsValidPassword);
-            //Guard.AgainstNullOrEmpty(student.Name, nameof(student.Name));
-            //Guard.AgainstNull(student.Name, nameof(student.Name));
         }
     }
 }

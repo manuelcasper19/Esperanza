@@ -1,6 +1,4 @@
-﻿
-
-namespace Universidad.Console.UseCase.Interfaces
+﻿namespace Esperanza.API.UseCases.Interfaces
 {
     public interface IUseCaseWithParameter<T> : IBaseUseCase<T>
     {

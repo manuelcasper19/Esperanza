@@ -20,14 +20,6 @@ namespace Esperanza.API.Helpers
         }
         public static void ValidateField<T>(T field, Func<T, bool> validationMethod)
         {
-            //if (field == null)
-            //{
-            //    throw new ArgumentNullException(nameof(field), "El campo no puede ser nulo.");
-            //}
-            //if (field is string && string.IsNullOrWhiteSpace((string)(object)field))
-            //{
-            //    throw new ArgumentException("El campo no puede estar vacío.");
-            //}
             if (!validationMethod(field))
             {
                 throw new ArgumentException($"El campo {nameof(field)} no es correcto, por favor vuelva a intentarlo");

@@ -1,9 +1,7 @@
-﻿
-
-namespace Universidad.Console.UseCase.Interfaces
+﻿namespace Esperanza.API.UseCases.Interfaces
 {
     public interface IUseCaseWithName<T> : IBaseUseCase<T>
     {
-         T Execute(string name);
+        T Execute(string name);
     }
 }

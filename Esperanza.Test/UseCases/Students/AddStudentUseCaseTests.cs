@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
-using Universidad.Shared.Entities;
+using Esperanza.Shared.Entities;
 
-namespace Universidad.Console.UseCases.Students.Tests
+namespace Esperanza.API.UseCases.Students.Tests
 {
     public class AddStudentUseCaseTests
     {
